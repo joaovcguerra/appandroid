@@ -1,98 +1,76 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, Image, ScrollView, Linking, TouchableOpacity } from 'react-native';
+import { PortfolioColors } from '@/constants/PortfolioColors';
+import { IconSymbol } from '@/components/ui/icon-symbol';
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+export default function ProfileScreen() {
+  const openLink = (url: string) => Linking.openURL(url);
 
-export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <View style={styles.imageContainer}>
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+          source={{ uri: 'https://github.com/waverjoao.png' }}
+          style={styles.profileImage}
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+      </View>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      <Text style={styles.name}>João Vitor</Text>
+      <Text style={styles.title}>Programador FullStack</Text>
+
+      <View style={styles.divider} />
+
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>CONTATO</Text>
+
+        <TouchableOpacity onPress={() => openLink('geo:0,0?q=Itapissuma')} style={styles.row}>
+          <IconSymbol name="mappin.and.ellipse" size={18} color={PortfolioColors.textLight} />
+          <Text style={styles.text}>Itapissuma - PE</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => openLink('tel:81985464487')} style={styles.row}>
+          <IconSymbol name="phone.fill" size={18} color={PortfolioColors.textLight} />
+          <Text style={styles.text}>(81) 98546-4487</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => openLink('mailto:email@exemplo.com')} style={styles.row}>
+          <IconSymbol name="envelope.fill" size={18} color={PortfolioColors.textLight} />
+          <Text style={styles.text}>email@exemplo.com</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: { flex: 1, backgroundColor: PortfolioColors.sidebarBg },
+  content: { padding: 40, alignItems: 'center' },
+  imageContainer: {
+    marginBottom: 20,
+    elevation: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  profileImage: {
+    width: 160,
+    height: 160,
+    borderRadius: 80,
+    borderWidth: 5,
+    borderColor: PortfolioColors.primary,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  name: { fontSize: 32, fontWeight: 'bold', color: PortfolioColors.textLight, marginBottom: 5 },
+  title: { fontSize: 18, color: '#c7c7c7', marginBottom: 20 },
+  divider: { width: '100%', height: 2, backgroundColor: PortfolioColors.primary, marginBottom: 30 },
+  section: { width: '100%', alignItems: 'flex-start' },
+  sectionTitle: {
+    color: PortfolioColors.white,
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 15,
+    letterSpacing: 2
   },
+  row: { flexDirection: 'row', alignItems: 'center', marginBottom: 15, gap: 12 },
+  text: { color: '#dcdcdc', fontSize: 16 },
 });
