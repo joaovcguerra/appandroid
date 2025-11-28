@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Linking } from 'react-native';
 import { PortfolioColors } from '@/constants/PortfolioColors';
-import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const SkillRating = ({ level }: { level: number }) => (
     <View style={styles.dots}>
@@ -24,7 +24,7 @@ const ProjectCard = ({ title, desc, url }: { title: string, desc: string, url: s
     </TouchableOpacity>
 );
 
-export default function AboutScreen() {
+export default function SkillsScreen() {
     return (
         <ScrollView style={styles.container} contentContainerStyle={styles.content}>
 
@@ -53,7 +53,7 @@ export default function AboutScreen() {
                 <Text style={styles.heading}>EDUCAÇÃO</Text>
                 <View style={styles.infoBlock}>
                     <Text style={styles.subHeading}>Bacharelado em Ciência da Computação</Text>
-                    <Text style={styles.mutedText}>Universidade XYZ | 2022 - Presente</Text>
+                    <Text style={styles.mutedText}>Universidade Católica de Pernambuco | 2022 - Presente</Text>
                 </View>
             </View>
 
@@ -99,7 +99,7 @@ export default function AboutScreen() {
 
 const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: PortfolioColors.white },
-    content: { padding: 30, paddingBottom: 100 },
+    content: { padding: 30, paddingBottom: 100, paddingTop: 60 },
     section: { marginBottom: 35 },
     heading: {
         fontSize: 18,
@@ -112,18 +112,15 @@ const styles = StyleSheet.create({
         letterSpacing: 1,
         textTransform: 'uppercase'
     },
-
     skillRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
     skillName: { fontSize: 16, fontWeight: '500', color: PortfolioColors.textDark },
     dots: { flexDirection: 'row', gap: 6 },
     dot: { width: 14, height: 14, borderRadius: 7 },
-
     infoBlock: { marginBottom: 10 },
     subHeading: { fontSize: 18, fontWeight: '600', marginBottom: 4, color: PortfolioColors.textDark },
     mutedText: { color: PortfolioColors.textMuted, fontStyle: 'italic' },
     bodyText: { fontSize: 16, color: PortfolioColors.textDark },
     hintText: { fontSize: 14, color: PortfolioColors.textMuted, marginBottom: 10, fontStyle: 'italic' },
-
     projectCard: {
         flexDirection: 'row',
         alignItems: 'center',

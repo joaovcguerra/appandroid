@@ -44,7 +44,7 @@ export default function ProfileScreen() {
           <Text style={styles.contactText}>(81) 98546-4487</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => openLink('mailto:email@exemplo.com')} style={styles.contactRow}>
+        <TouchableOpacity onPress={() => openLink('mailto:joaovcarneirog@gmail.com')} style={styles.contactRow}>
           <MaterialIcons name="email" size={20} color={PortfolioColors.primary} />
           <Text style={styles.contactText}>joaovcarneirog@gmail.com</Text>
         </TouchableOpacity>
@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     textAlign: 'center'
   },
-
   aboutText: {
     color: '#dcdcdc',
     fontSize: 16,
@@ -111,7 +110,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20
   },
-
   contactRow: {
     flexDirection: 'row',
     alignItems: 'center',
