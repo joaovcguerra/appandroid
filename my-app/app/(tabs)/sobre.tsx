@@ -26,7 +26,7 @@ export default function AppInfoScreen() {
 
                 <View style={styles.techRow}>
                     <FontAwesome5 name="css3-alt" size={24} color="#264de4" />
-                    <Text style={styles.techText}>StyleSheet (CSS-in-JS)</Text>
+                    <Text style={styles.techText}>CSS 3 (CSS-in-JS)</Text>
                 </View>
 
                 <View style={styles.techRow}>

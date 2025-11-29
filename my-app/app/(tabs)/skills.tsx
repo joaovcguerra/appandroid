@@ -20,21 +20,45 @@ export default function SkillsScreen() {
         <Text style={styles.heading}>HABILIDADES</Text>
         
         <View style={styles.skillRow}>
-          <Text style={styles.skillName}>JavaScript / React</Text>
+          <Text style={styles.skillName}>JavaScript</Text>
           <SkillRating level={4} />
         </View>
+
         <View style={styles.skillRow}>
-          <Text style={styles.skillName}>Node.js</Text>
+          <Text style={styles.skillName}>TypeScript</Text>
           <SkillRating level={3} />
         </View>
-        <View style={styles.skillRow}>
-          <Text style={styles.skillName}>CSS / Styling</Text>
-          <SkillRating level={5} />
-        </View>
+
         <View style={styles.skillRow}>
           <Text style={styles.skillName}>React Native</Text>
           <SkillRating level={4} />
         </View>
+
+        <View style={styles.skillRow}>
+          <Text style={styles.skillName}>Expo</Text>
+          <SkillRating level={4} />
+        </View>
+
+        <View style={styles.skillRow}>
+          <Text style={styles.skillName}>Next.js</Text>
+          <SkillRating level={4} />
+        </View>
+
+        <View style={styles.skillRow}>
+          <Text style={styles.skillName}>Node.js</Text>
+          <SkillRating level={3} />
+        </View>
+
+        <View style={styles.skillRow}>
+          <Text style={styles.skillName}>CSS</Text>
+          <SkillRating level={5} />
+        </View>
+
+        <View style={styles.skillRow}>
+          <Text style={styles.skillName}>Comunicação</Text>
+          <SkillRating level={5} />
+        </View>
+
       </View>
     </ScrollView>
   );
