@@ -1,0 +1,82 @@
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Linking } from 'react-native';
+import { PortfolioColors } from '@/constants/PortfolioColors';
+import { MaterialIcons } from '@expo/vector-icons';
+
+const ProjectCard = ({ title, desc, url }: { title: string, desc: string, url: string }) => (
+  <TouchableOpacity onPress={() => Linking.openURL(url)} style={styles.projectCard}>
+    <View style={{flex: 1}}>
+      <Text style={styles.projectTitle}>{title}</Text>
+      <Text style={styles.projectDesc}>{desc}</Text>
+    </View>
+    <MaterialIcons name="open-in-new" size={20} color={PortfolioColors.primary} />
+  </TouchableOpacity>
+);
+
+export default function ProjectsScreen() {
+  return (
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <Text style={styles.heading}>PROJETOS</Text>
+      <Text style={styles.hintText}>Toque para ver no GitHub:</Text>
+      
+      <ProjectCard 
+        title="Avaliador de Anime" 
+        desc="Site web para avaliação de animes."
+        url="https://github.com/PWMHunters/ProjetoWEB01.git"
+      />
+      
+      <ProjectCard 
+        title="Adoção de Animais" 
+        desc="App mobile (Expo) para adoção de pets."
+        url="https://github.com/PWMHunters/pwm-expo-project.git"
+      />
+
+      <ProjectCard 
+        title="Portfólio Pessoal" 
+        desc="Este portfólio desenvolvido em Next.js/React Native."
+        url="https://github.com/joaovcguerra/curriculo.git"
+      />
+
+      <ProjectCard 
+        title="Bot Discord" 
+        desc="Bot automatizado para servidores Discord."
+        url="https://github.com/joaovcguerra/bot-discord.git"
+      />
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: PortfolioColors.white },
+  content: { padding: 30, paddingBottom: 100, paddingTop: 60 },
+  heading: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: PortfolioColors.primary,
+    marginBottom: 10,
+    borderBottomWidth: 2,
+    borderBottomColor: '#e9ecef',
+    paddingBottom: 5,
+    letterSpacing: 1,
+    textTransform: 'uppercase'
+  },
+  hintText: { fontSize: 14, color: PortfolioColors.textMuted, marginBottom: 20, fontStyle: 'italic' },
+  projectCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#f8f9fa',
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 15,
+    borderLeftWidth: 4,
+    borderLeftColor: PortfolioColors.primary,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+  },
+  projectTitle: { fontSize: 16, fontWeight: 'bold', color: PortfolioColors.textDark },
+  projectDesc: { fontSize: 14, color: PortfolioColors.textMuted, marginTop: 4 },
+});

@@ -16,10 +16,7 @@ export default function TabLayout() {
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarStyle: Platform.select({
-          ios: { 
-            position: 'absolute',
-            backgroundColor: '#1a1a1a',
-          },
+          ios: { position: 'absolute', backgroundColor: '#1a1a1a' },
           default: { 
             backgroundColor: '#1a1a1a', 
             borderTopWidth: 0, 
@@ -28,22 +25,47 @@ export default function TabLayout() {
             paddingTop: 5 
           },
         }),
-        tabBarLabelStyle: { fontSize: 12, marginBottom: 5 },
+        tabBarLabelStyle: { fontSize: 10, marginBottom: 5 }, 
+        tabBarItemStyle: { width: 75 }
       }}>
       
       <Tabs.Screen
         name="index"
         options={{
           title: 'Perfil',
-          tabBarIcon: ({ color }) => <MaterialIcons name="person" size={28} color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name="person" size={24} color={color} />,
         }}
       />
 
       <Tabs.Screen
         name="skills"
         options={{
-          title: 'Habilidades',
-          tabBarIcon: ({ color }) => <MaterialIcons name="list-alt" size={28} color={color} />,
+          title: 'Skills',
+          tabBarIcon: ({ color }) => <MaterialIcons name="bolt" size={24} color={color} />,
+        }}
+      />
+
+      <Tabs.Screen
+        name="education"
+        options={{
+          title: 'Educação',
+          tabBarIcon: ({ color }) => <MaterialIcons name="school" size={24} color={color} />,
+        }}
+      />
+
+      <Tabs.Screen
+        name="experience"
+        options={{
+          title: 'Exp.',
+          tabBarIcon: ({ color }) => <MaterialIcons name="work" size={24} color={color} />,
+        }}
+      />
+
+      <Tabs.Screen
+        name="projects"
+        options={{
+          title: 'Projetos',
+          tabBarIcon: ({ color }) => <MaterialIcons name="folder-open" size={24} color={color} />,
         }}
       />
 
@@ -51,7 +73,7 @@ export default function TabLayout() {
         name="game"
         options={{
           title: 'Forca',
-          tabBarIcon: ({ color }) => <MaterialIcons name="videogame-asset" size={28} color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name="videogame-asset" size={24} color={color} />,
         }}
       />
 
@@ -59,7 +81,7 @@ export default function TabLayout() {
         name="sobre"
         options={{
           title: 'Sobre App',
-          tabBarIcon: ({ color }) => <MaterialIcons name="info" size={28} color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name="info" size={24} color={color} />,
         }}
       />
     </Tabs>
